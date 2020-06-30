@@ -44,14 +44,17 @@ class TestCase(unittest.TestCase):
     self.assertTrue(ret1 == 0 and ret2 == 4 and ret3 == 2 and ret4 == 2 and
      ret5 == 4,str(ret1)+":"+str(ret2)+":"+str(ret3)+":"+str(ret4)+":"+str(ret5))
 
+  def test_max_profit_by_sell_once(self):
+    prices = [310,310,275,275,260,260,260,230,230,330]
+    self.assertEqual(code.get_max_profit_buy_sell_once(prices),100)
 
-def multiplySuite():
+def TestSuite():
   suite = unittest.TestSuite()
   #suite.addTest(TestCase('testPositiveNegative'))
   #suite.addTest(TestCase('testZero'))
-  suite.addTests([TestCase('test_get_single')])
+  suite.addTests([TestCase('test_max_profit_by_sell_once')])
   return suite
 
 if __name__ == '__main__':
   runner = unittest.TextTestRunner()
-  runner.run(multiplySuite())
+  runner.run(TestSuite())     

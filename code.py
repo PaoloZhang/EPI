@@ -11,6 +11,7 @@ class Node:
 
 
 class Solution:
+    
     def insert(self, nums: List[int], m: int, number: int, pos: int) -> int:
         if pos == m:
             nums[m] = number
@@ -395,6 +396,15 @@ def median(A, B):
             else: min_of_right = min(A[i], B[j])
 
             return (max_of_left + min_of_right) / 2.0
+    
+def get_max_profit_buy_sell_once(prices:List[int]) -> int:
+    previous_low_price, max_profit = float('inf'),0
+    for price in prices:
+        max_profit = max(max_profit,price - previous_low_price)
+        if price < previous_low_price:
+            previous_low_price = price
+    return max_profit
+             
 
         
 if __name__ == '__main__':
